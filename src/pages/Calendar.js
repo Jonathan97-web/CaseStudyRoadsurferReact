@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import DropDownStation from "../components/DropDownStation";
 import { Button } from "@mui/material";
+import "../styles/Calendar.css"
 
 function Calendar() {
   const [locations, setLocations] = useState([]);
@@ -18,6 +19,10 @@ function Calendar() {
         );
         console.log(response.data);
         setLocations(response.data);
+        const berlinLocation = response.data.find(location => location.name === 'Berlin')
+        if (berlinLocation) {
+          setSelectedLocation(berlinLocation.id)
+        }
         setFetched(true);
       } catch (err) {
         console.log(err);
@@ -38,12 +43,12 @@ function Calendar() {
         fetchData={fetchData}
         onLocationChange={handleLocationChange}
       />
-      <div id="grid-container" className="grid grid-cols-7 gap 3">
+      <div id="grid-container border-test" className=" grid grid-cols-7 gap-3">
         {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day, i) => (
           <div key={i}>
-            <div>{day}</div>
+            <div className="border-test">{day}</div>
             {locations
-              .filter(location => selectedLocation === null || location.id === selectedLocation)
+              .filter(location => selectedLocation !== null && location.id === selectedLocation)
               .flatMap(location => location.bookings)
               .filter(booking => {
                 const bookingDate = new Date(booking.startDate);
@@ -52,7 +57,7 @@ function Calendar() {
                 return adjustedDayIndex === i;
               })
               .map((booking, j) => (
-                <ul className="border-solid border-black" key={j}>
+                <ul id="border-test" className="m-3" key={j}>
                   <li>{booking.customerName},<br /> {booking.startDate}</li>
                   <Button>View Booking</Button>
                 </ul>

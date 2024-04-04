@@ -1,3 +1,7 @@
 #grid-container {
     min-height: 20vh;
 }
+
+#border-test {
+    border: 5px solid black;
+}
