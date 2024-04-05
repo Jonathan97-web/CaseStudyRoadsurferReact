@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import {Route, Routes} from "react-router-dom"
 import Calendar from "./pages/Calendar"
 import './App.css';
