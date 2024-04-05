@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/casestudyreact/static/css/main.3e317d1a.css",
+    "main.js": "/casestudyreact/static/js/main.290b6cc8.js",
+    "static/js/453.846197b3.chunk.js": "/casestudyreact/static/js/453.846197b3.chunk.js",
+    "index.html": "/casestudyreact/index.html",
+    "main.3e317d1a.css.map": "/casestudyreact/static/css/main.3e317d1a.css.map",
+    "main.290b6cc8.js.map": "/casestudyreact/static/js/main.290b6cc8.js.map",
+    "453.846197b3.chunk.js.map": "/casestudyreact/static/js/453.846197b3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e317d1a.css",
+    "static/js/main.290b6cc8.js"
+  ]
+}
