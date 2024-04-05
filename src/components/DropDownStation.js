@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from "react";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 const DropDownStation = ({ loading, locations, fetchData, onLocationChange }) => {
   useLayoutEffect(() => {
@@ -11,12 +12,15 @@ const DropDownStation = ({ loading, locations, fetchData, onLocationChange }) =>
 
   return (
     <div>
-      <div>
-        <select onChange={handleSelectChange}>
+      <div className="m-2">
+        <FormControl fullWidth>
+        <InputLabel>Station</InputLabel>
+        <Select onChange={handleSelectChange}>
           {!loading && locations.map((location) => (
-            <option key={location.id} value={location.id}>{location.name}</option>
-          ))}
-        </select>
+            <MenuItem key={location.id} value={location.id}>{location.name}</MenuItem>
+          )) } 
+        </Select>
+        </FormControl>
       </div>
     </div>
   );
