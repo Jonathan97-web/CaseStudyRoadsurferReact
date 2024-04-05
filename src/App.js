@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Calendar />} />
-
+        <Route path="*" element={<h1>404: Not Found</h1>} />
       </Routes>
     </div>
   );
