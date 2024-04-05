@@ -12,7 +12,8 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: 5,
+    borderRadius: 5,
   };
 
 const showCustomerModal = ({ showModal, handleShowModal, locations, customer, selectedLocation }) => {
@@ -32,7 +33,9 @@ const showCustomerModal = ({ showModal, handleShowModal, locations, customer, se
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
             Returning Station: {stationName} <br /> Returning Station id: {selectedLocation} <br /> Start Date:{customer.startDate} <br /> End Date:{customer.endDate}
           </Typography>
-          <Button onClick={handleShowModal}>Close</Button>
+          <span className="flex justify-center">
+          <Button variant="outlined"  onClick={handleShowModal}>Close</Button>
+          </span>
         </Box>
         </Modal>
     )
