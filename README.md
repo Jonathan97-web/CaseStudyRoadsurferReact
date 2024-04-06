@@ -24,6 +24,11 @@
 -- Test view booking button so that it shows the modal when clicked and that the user information is correct.
 -- Test the dropdown menu so that it returns the correct bookings for selected city
 
+Automated tests:
+-- I wrote 3 automated tests to test the following:
+-- Created a test to render the App component to make sure it renders correctly.
+-- Created a test to render the calendar component, make sure it fetches locations and expects to find customer name and booking id.
+
 ---
 
 ### Bugs
