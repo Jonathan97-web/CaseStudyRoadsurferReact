@@ -1,12 +1,12 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { HashRouter as Router } from "react-router-dom";
 import App from "../App";
 import NavBar from "../components/NavBar";
 import Calendar from "../pages/Calendar";
+import React from "react";
 
 // Renders the App component
-it("renders", () => {
+it("renders the App component", () => {
   render(
     <Router>
       <App />
@@ -47,7 +47,7 @@ it("renders the Navbar, sets the location to match the location provided under, 
   }
 });
 
-// Renders the Calendar component and fetches the bookings/locations
+// Renders the Calendar component and fetches the bookings
 it("renders the Calendar component and fetches locations and expects to find customer name and booking id.", async () => {
   const fetchData = jest.fn();
   const locations = [
