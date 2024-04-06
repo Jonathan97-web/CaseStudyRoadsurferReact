@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Jonathan97-web/casestudyreact/static/css/main.3e317d1a.css",
-    "main.js": "/Jonathan97-web/casestudyreact/static/js/main.5d870b98.js",
-    "static/js/453.846197b3.chunk.js": "/Jonathan97-web/casestudyreact/static/js/453.846197b3.chunk.js",
-    "index.html": "/Jonathan97-web/casestudyreact/index.html",
-    "main.3e317d1a.css.map": "/Jonathan97-web/casestudyreact/static/css/main.3e317d1a.css.map",
-    "main.5d870b98.js.map": "/Jonathan97-web/casestudyreact/static/js/main.5d870b98.js.map",
-    "453.846197b3.chunk.js.map": "/Jonathan97-web/casestudyreact/static/js/453.846197b3.chunk.js.map"
+    "main.css": "/casestudyreact/static/css/main.3e317d1a.css",
+    "main.js": "/casestudyreact/static/js/main.dc1fdf26.js",
+    "static/js/453.846197b3.chunk.js": "/casestudyreact/static/js/453.846197b3.chunk.js",
+    "index.html": "/casestudyreact/index.html",
+    "main.3e317d1a.css.map": "/casestudyreact/static/css/main.3e317d1a.css.map",
+    "main.dc1fdf26.js.map": "/casestudyreact/static/js/main.dc1fdf26.js.map",
+    "453.846197b3.chunk.js.map": "/casestudyreact/static/js/453.846197b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3e317d1a.css",
-    "static/js/main.5d870b98.js"
+    "static/js/main.dc1fdf26.js"
   ]
 }
