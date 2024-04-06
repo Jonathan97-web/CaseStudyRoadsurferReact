@@ -1,44 +1,19 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import DropDownStation from "../components/DropDownStation";
 import ShowCustomerModal from "../components/CustomerModal";
 import { Button } from "@mui/material";
 import "../styles/Calendar.css"
 
-function Calendar() {
-  const [locations, setLocations] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [fetched, setFetched] = useState(false);
+function Calendar({ locations, selectedLocation, setLocations, loading, fetchData }) {
   const [selectedCustomer, setSelectedCustomer] = useState(null)
-  const [selectedLocation, setSelectedLocation] = useState(null);
   const [showModal, setShowModal] = useState(false)
 
-  const fetchData = async () => {
-    // If the data is already fetched it will not fetch it again 
-    if (!fetched) {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          "https://605c94c36d85de00170da8b4.mockapi.io/stations"
-        );
-        // console.log(response.data);
-        setLocations(response.data);
-        // If the response is not empty it will set the selected location to Berlin - This was to populate the Calendar Immediately
-        const berlinLocation = response.data.find(location => location.name === 'Berlin')
-        if (berlinLocation) {
-          setSelectedLocation(berlinLocation.id)
-        }
-        setFetched(true);
-      } catch (err) {
-        console.log(err);
-      }
-      setLoading(false);
-    }
-  };
 
-  const handleLocationChange = (selectedOption) => {
-    setSelectedLocation(selectedOption);
-  };
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  // Function to handle the change of the location in the dropdown menu when you select a different city
 
   const handleShowModal = (customer) => {
     setShowModal(!showModal)
@@ -57,13 +32,6 @@ function Calendar() {
       locations={locations}
       />}
         {/* Dropdown menu for specifying which of the cities you want to see the bookings for. */}
-      <DropDownStation
-        loading={loading}
-        locations={locations}
-        fetchData={fetchData}
-        onLocationChange={handleLocationChange}
-        selectedLocation={selectedLocation}
-      />
       <div id="grid-container border-test" className=" grid grid-cols-2  xl:grid-cols-7 md:grid-cols-4 gap-1">
         {/* Mapping over the specific days in the calendar */}
         {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day, i) => (
