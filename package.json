@@ -1,7 +1,7 @@
 {
   "name": "casestudyreact",
   "version": "0.1.0",
-  "homepage": "https://github.com/Jonathan97-web/casestudyreact",
+  "homepage": "https://jonathan97-web.github.io/casestudyreact/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
