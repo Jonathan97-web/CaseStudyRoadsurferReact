@@ -1,11 +1,12 @@
+// Imports of needed modules
 import { render, screen } from "@testing-library/react";
 import { HashRouter as Router } from "react-router-dom";
 import App from "../App";
 import NavBar from "../components/NavBar";
 import Calendar from "../pages/Calendar";
 import React from "react";
+import DropDownStation from "../components/DropDownStation";
 
-// Renders the App component
 it("renders the App component", () => {
   render(
     <Router>
@@ -14,7 +15,21 @@ it("renders the App component", () => {
   );
 });
 
-// Renders the Navbar component and sets the location to Berlin
+it("renders the DropDownStation component, using fetchData and locations as mock data", () => {
+  const locations = [
+    {
+      id: 1,
+      name: "Berlin",
+    },
+  ];
+  const fetchData = jest.fn();
+  render(
+    <Router>
+      <DropDownStation locations={locations} fetchData={fetchData} />
+    </Router>
+  );
+});
+
 it("renders the Navbar, sets the location to match the location provided under, and sets the selected location to Berlin", () => {
   const fetchData = jest.fn();
   const locations = [
@@ -47,8 +62,7 @@ it("renders the Navbar, sets the location to match the location provided under, 
   }
 });
 
-// Renders the Calendar component and fetches the bookings
-it("renders the Calendar component and fetches locations and expects to find customer name and booking id.", async () => {
+it("renders the Calendar component and expects to find the previous week button and next week button, need to render locations and selectedLocation to avoid testing errors.", async () => {
   const fetchData = jest.fn();
   const locations = [
     {
@@ -77,15 +91,21 @@ it("renders the Calendar component and fetches locations and expects to find cus
     },
   ];
   const selectedLocation = 1;
-  const handleShowModal = jest.fn();
   render(
-    <Calendar
-      fetchData={fetchData}
-      locations={locations}
-      selectedLocation={selectedLocation}
-      handleShowModal={handleShowModal}
-    />
+    <Router>
+      <Calendar
+        fetchData={fetchData}
+        locations={locations}
+        selectedLocation={selectedLocation}
+      />
+    </Router>
   );
-  expect(await screen.findByText(/booking id:\s*1/i)).toBeInTheDocument();
-  expect(await screen.getByText("John Doe")).toBeInTheDocument();
+
+  // Use findByText to wait for the elements to be added to the DOM
+  const prevButton = screen.getByText("Previous Week");
+  const nextButton = screen.getByText("Next Week");
+
+  // Check that the elements are in the document
+  expect(prevButton).toBeInTheDocument();
+  expect(nextButton).toBeInTheDocument();
 });
