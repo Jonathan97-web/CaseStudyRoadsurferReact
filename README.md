@@ -14,11 +14,11 @@
 2.1 Maps through bookings and assigns it to the current day by calculating from the date.
 2.2 Normally it starts on a Sunday but I reformatted this for the Calendar to start on a Monday instead.
 3. Created a Customer Modal to be able to go in and out of bookings fast.
-3.1 I reformatted the date to YYYY-MM-DD and time to HH-MM-SS For increased readability.
-3.2 I added the customer id and all the relevant information.
-3.3 I created a duration which shows the exact duration in days.
+  3.1 I reformatted the date to YYYY-MM-DD and time to HH-MM-SS For increased readability.
+  3.2 I added the customer id and all the relevant information.
+  3.3 I created a duration which shows the exact duration in days.
 4. Created a basic 404 message when routed to the wrong page.
-4.1 I noticed later that there is already a custom 404 page from Github.
+  4.1 I noticed later that there is already a custom 404 page from Github.
 5. I reformatted the whole application to have the fetchData at the top of the application.
 5.1 This was done to complement the 6th step.
 6. created a context to be able to pass props directly down instead of it being all over the place.
@@ -29,16 +29,15 @@
 ----
 
 ### Features
-- Users can view bookings by clicking the view booking, a modal will pop up with booking/customer information.
+- Users can view bookings by clicking the view booking, the user will be redirected to the booking details page to view the booking in more detail.
 - Users can choose from a dropdown menu in the Navbar to view bookings depending on city.
 - If no bookings exists on a day, it will show no bookings found.
-- There are buttons for previous and next week, but they are not functional since I need to be able to filter by week from the API.
+- Navigate between weeks for bookings with specified dates, if there are no bookings on a certain the week will get skipped.
 
 ---
 ### Future features
 
-- Be able to filter bookings by week.
-- User authentication so that only licensed people can login and view the bookings.
+- User authentication so that only authorized people can login and view the bookings.
 
 ---
 
