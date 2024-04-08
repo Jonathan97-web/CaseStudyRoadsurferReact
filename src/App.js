@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { useState, createContext } from "react";
 import Calendar from "./pages/Calendar";
+import BookingDetail from "./pages/BookingDetail";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import axios from "axios";
-
 export const LocationsContext = createContext();
 
 function App() {
@@ -25,7 +25,6 @@ function App() {
         const response = await axios.get(
           "https://605c94c36d85de00170da8b4.mockapi.io/stations"
         );
-        // console.log(response.data);
         setLocations(response.data);
         // If the response is not empty it will set the selected location to Berlin - This was to populate the Calendar Immediately
         const berlinLocation = response.data.find(
@@ -72,6 +71,7 @@ function App() {
               />
             }
           />
+          <Route path="/bookingdetail/:id" element={<BookingDetail />} />
           <Route path="*" element={<h1>404: Not Found</h1>} />
         </Routes>
       </LocationsContext.Provider>
