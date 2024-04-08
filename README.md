@@ -57,10 +57,11 @@
 -- Test so that the alerts pop up when they should.
 
 - Automated tests:
--- I wrote 3 automated tests to test the following:  
+-- I wrote 4 automated tests to test the following:  
 -- Created a test to render the Navbar component and sets the location to Berlin.  
--- Created a test to render the App component to make sure it renders correctly.  
--- Created a test to render the calendar component, make sure it fetches locations and expects to find customer name and booking id.  
+-- Created a test to render the App component to make sure it renders correctly. 
+-- Created a test to render the DropDownStation component, using fetchData and locations as mock data. 
+-- Created a test to render the Calendar component and expects to find the previous week button and next week button.
 
 - These tests do not cover the entire application, but as a future feature it will.   
 
@@ -72,7 +73,7 @@
 | [React](https://react.dev/) |
 | [Material UI](https://mui.com/material-ui/) |
 | [Tailwind CSS](https://tailwindcss.com/)    |
-| [React Router](https://reactrouter.com/en/main)|
+| [React Router](https://reactrouter.com/en/main) |
 
 ---
 
