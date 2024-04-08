@@ -1,6 +1,5 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import DropDownStation from "./DropDownStation";
 
 export default function NavBar({
@@ -12,6 +11,7 @@ export default function NavBar({
 }) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
+  // useEffect to handle the scroll event for the navbar
   React.useEffect(() => {
     const handleScroll = () => {
       const show = window.scrollY > 0;
@@ -41,6 +41,7 @@ export default function NavBar({
         transition: "border 0.05s ease-in-out",
       }}
     >
+      {/* Dropdown for selecting the stations */}
       <DropDownStation
         locations={locations}
         fetchData={fetchData}

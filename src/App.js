@@ -17,6 +17,7 @@ function App() {
     setSelectedLocation(selectedOption);
   };
 
+  // Fetches the locations for the calendar
   const fetchData = async () => {
     // If the data is already fetched it will not fetch it again
     if (!fetched) {
@@ -42,6 +43,7 @@ function App() {
   };
 
   return (
+    // The LocationsContext.Provider is used to pass the locations and selected location to the NavBar and Calendar
     <div className="App">
       <LocationsContext.Provider
         value={{

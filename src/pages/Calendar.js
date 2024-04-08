@@ -1,3 +1,4 @@
+// Imports of needed modules
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import "../styles/Calendar.css";
@@ -95,11 +96,13 @@ function Calendar({ locations, selectedLocation }) {
     }
   };
 
+  // Get the start and end date of the week
   const [startOfWeek, endOfWeek] = getWeekDates(currentWeek);
   const bookingsForWeek = getBookingsForWeek(currentWeek);
 
   return (
     <>
+      {/* Shows Alert if no bookings are found when pressing next or previous week */}
       {showAlert && (
         <Snackbar
           open={showAlert}
@@ -172,7 +175,7 @@ function Calendar({ locations, selectedLocation }) {
                   </ul>
                 ))
               ) : (
-                // If no bookings are found for the day
+                // Renders if no bookings are found for the specific day
                 <div>No bookings found.</div>
               )}
             </div>
