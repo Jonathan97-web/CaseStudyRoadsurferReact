@@ -10,7 +10,7 @@ function Calendar({ locations, selectedLocation }) {
 
   // Calculate the first Monday of the year that the startDate falls in
   const year = startDate.getFullYear();
-  const firstDayOfYear = new Date(year, 0, 1); // January 1 of the startDate's year
+  const firstDayOfYear = new Date(year, 0, 1);
   const firstMondayOfYear = new Date(firstDayOfYear);
   firstMondayOfYear.setDate(
     firstDayOfYear.getDate() + ((1 - firstDayOfYear.getDay() + 7) % 7)
