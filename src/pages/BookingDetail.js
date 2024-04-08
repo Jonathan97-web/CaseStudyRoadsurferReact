@@ -1,3 +1,4 @@
+// Imports of needed modules
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -22,7 +23,7 @@ const style = {
   borderRadius: 5,
 };
 
-const BookingDetail = ({}) => {
+const BookingDetail = () => {
   const [loading, setLoading] = useState(false);
   const [bookingDetails, setBookingDetails] = useState(null);
   const { id } = useParams();
@@ -47,9 +48,10 @@ const BookingDetail = ({}) => {
       setLoading(false);
     };
     fetchData();
-  }, [id]);
+  }, [stationId, id]);
 
-  if (!bookingDetails) {
+  // If the booking details are not fetched yet, it will return null
+  if (loading || !bookingDetails) {
     return null;
   }
 
@@ -74,25 +76,31 @@ const BookingDetail = ({}) => {
   const durationDays = Math.floor(durationMs / (1000 * 60 * 60 * 24));
 
   return (
-    <Box sx={style} className="text-white">
-      <Typography id="keep-mounted-modal-title" variant="h5" component="h2">
-        Customer Name: {bookingDetails.customerName} <br /> Customer Id:{" "}
-        {bookingDetails.id}
-      </Typography>
-      <Typography sx={{ mt: 2 }}>
-        Station: {station} <br />
-        Station id: {stationId} <br />
-        Start Date: {formattedStartDate}
-        <br /> End Date: {formattedEndDate} <br />
-        Pickup Time: {startTime} <br /> Return Time: {endTime} <br />
-        Duration: {durationDays} days
-      </Typography>
-      <span className="flex justify-center">
-        <Button onClick={() => navigate("/casestudyreact")} variant="contained">
-          Go back
-        </Button>
-      </span>
-    </Box>
+    <>
+      <Box sx={style} className="text-white">
+        <Typography id="keep-mounted-modal-title" variant="h5" component="h2">
+          Customer Name: {bookingDetails.customerName} <br /> Customer Id:{" "}
+          {bookingDetails.id}
+        </Typography>
+        <Typography sx={{ mt: 2 }}>
+          Station: {station} <br />
+          Station id: {stationId} <br />
+          Start Date: {formattedStartDate}
+          <br /> End Date: {formattedEndDate} <br />
+          Pickup Time: {startTime} <br /> Return Time: {endTime} <br />
+          Duration: {durationDays} days
+        </Typography>
+        <span className="flex justify-center">
+          <Button
+            onClick={() => navigate("/casestudyreact")}
+            variant="contained"
+          >
+            Go back
+          </Button>
+        </span>
+      </Box>
+      ;
+    </>
   );
 };
 
