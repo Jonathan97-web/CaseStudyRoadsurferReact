@@ -74,6 +74,7 @@
 | [Material UI](https://mui.com/material-ui/) |
 | [Tailwind CSS](https://tailwindcss.com/)    |
 | [React Router](https://reactrouter.com/en/main) |
+| [Axios](https://axios-http.com/)
 
 ---
 
