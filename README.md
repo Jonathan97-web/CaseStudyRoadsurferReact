@@ -42,6 +42,7 @@
 - If no bookings exists on a day, it will show no bookings found.  
 - Navigate between weeks for bookings with specified dates, if there are no bookings on a certain the week will get skipped.
 - Alert when there are no more bookings to be found for increased UX.
+- The border around the navbar will go away when scrolled down to increase readability of the booking calendar when over 100vh.  
 
 ---
 ### Future features
