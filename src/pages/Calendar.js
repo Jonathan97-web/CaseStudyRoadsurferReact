@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import "../styles/Calendar.css";
 import { useNavigate } from "react-router-dom";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
 
 function Calendar({ locations, selectedLocation }) {
+  // Navigation hook to navigate to a specific page from React Router
   const navigate = useNavigate();
+  // Start date of the first booking available in API
   const startDate = new Date("2020-04-02T23:20:49.904Z");
+  // End date in the future (In case new values/bookings are added to the API)
   const endDate = new Date("2025-12-31T23:20:49.904Z");
+  const [showAlert, setShowAlert] = useState(false);
 
   // Calculate the first Monday of the year that the startDate falls in
   const year = startDate.getFullYear();
@@ -58,27 +64,34 @@ function Calendar({ locations, selectedLocation }) {
         return bookingDate >= startOfWeek && bookingDate <= endOfWeek;
       });
   };
-  // nextWeek function to get the next week
+  // Function to get the next week
   const nextWeek = () => {
     let week = currentWeek + 1;
     while (week < totalWeeks) {
       if (getBookingsForWeek(week).length > 0) {
         setCurrentWeek(week);
+        setShowAlert(false);
         break;
       }
       week++;
     }
+    if (week >= totalWeeks) {
+      setShowAlert(true);
+    }
   };
-  // previousWeek function to get the previous week
+  // Function to get the previous week
   const previousWeek = () => {
     let week = currentWeek - 1;
     while (week >= 0) {
       if (getBookingsForWeek(week).length > 0) {
         setCurrentWeek(week);
-        console.log(week);
+        setShowAlert(false);
         break;
       }
       week--;
+    }
+    if (week < 0) {
+      setShowAlert(true);
     }
   };
 
@@ -87,6 +100,18 @@ function Calendar({ locations, selectedLocation }) {
 
   return (
     <>
+      {showAlert && (
+        <Snackbar
+          open={showAlert}
+          anchorOrigin={{ vertical: "top", horizontal: "left" }}
+          autoHideDuration={2000}
+          onClose={() => setShowAlert(false)}
+        >
+          <Alert severity="info">
+            No more bookings found during these dates.
+          </Alert>
+        </Snackbar>
+      )}
       <div>
         <p className="text-white text-xl m-2">
           {startOfWeek.toDateString()} - {endOfWeek.toDateString()}
@@ -123,7 +148,9 @@ function Calendar({ locations, selectedLocation }) {
               className="text-white border-2 rounded-xl border-slate-700"
               key={i}
             >
+              {/* Display the day of the week */}
               <div>{day}</div>
+              {/* Display the bookings for the day */}
               {bookingsForDay.length > 0 ? (
                 bookingsForDay.map((booking, j) => (
                   <ul
@@ -145,6 +172,7 @@ function Calendar({ locations, selectedLocation }) {
                   </ul>
                 ))
               ) : (
+                // If no bookings are found for the day
                 <div>No bookings found.</div>
               )}
             </div>
