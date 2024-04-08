@@ -23,5 +23,10 @@ export const useStation = (id) => {
     fetchData();
   }, [id]);
 
+  // If the station is not fetched yet, it will return null
+  if (loading || !station) {
+    return null;
+  }
+
   return station;
 };
