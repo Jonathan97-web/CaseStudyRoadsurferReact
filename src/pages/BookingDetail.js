@@ -4,24 +4,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useStation } from "../hooks/useStation";
 import { useNavigate } from "react-router-dom";
+import "../styles/Calendar.css";
 
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
-
-// Style for the box component
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  maxWidth: 600,
-  border: "2px solid white",
-  blur: 24,
-  boxShadow: 24,
-  p: 5,
-  borderRadius: 5,
-};
 
 const BookingDetail = () => {
   const [loading, setLoading] = useState(false);
@@ -77,7 +64,7 @@ const BookingDetail = () => {
 
   return (
     <>
-      <Box sx={style} className="text-white">
+      <Box className="booking-box mx-auto border-2 rounded-xl  border-slate-500">
         <Typography id="keep-mounted-modal-title" variant="h5" component="h2">
           Customer Name: {bookingDetails.customerName} <br /> Customer Id:{" "}
           {bookingDetails.id}
