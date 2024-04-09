@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/casestudyreact/static/css/main.1e2b2078.css",
-    "main.js": "/casestudyreact/static/js/main.6bf15c69.js",
+    "main.css": "/casestudyreact/static/css/main.8b030907.css",
+    "main.js": "/casestudyreact/static/js/main.c19ebc79.js",
     "static/js/453.846197b3.chunk.js": "/casestudyreact/static/js/453.846197b3.chunk.js",
     "index.html": "/casestudyreact/index.html",
-    "main.1e2b2078.css.map": "/casestudyreact/static/css/main.1e2b2078.css.map",
-    "main.6bf15c69.js.map": "/casestudyreact/static/js/main.6bf15c69.js.map",
+    "main.8b030907.css.map": "/casestudyreact/static/css/main.8b030907.css.map",
+    "main.c19ebc79.js.map": "/casestudyreact/static/js/main.c19ebc79.js.map",
     "453.846197b3.chunk.js.map": "/casestudyreact/static/js/453.846197b3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e2b2078.css",
-    "static/js/main.6bf15c69.js"
+    "static/css/main.8b030907.css",
+    "static/js/main.c19ebc79.js"
   ]
 }
