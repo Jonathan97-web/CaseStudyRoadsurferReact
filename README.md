@@ -58,17 +58,17 @@
 
 - Manual tests:  
 -- Testing for 404 Error when inputting the wrong URL  
--- Test view booking button so that it redirects to the booking details page for the specific booking that was selected.
--- Test the dropdown menu so that it returns the correct bookings for selected city 
--- Test the navigation button function so that it navigates between weeks.
--- Test so that the alerts pop up when they should.
+-- Test view booking button so that it redirects to the booking details page for the specific booking that was selected.  
+-- Test the dropdown menu so that it returns the correct bookings for selected city   
+-- Test the navigation button function so that it navigates between weeks.  
+-- Test so that the alerts pop up when they should.  
 
 - Automated tests:
 -- I wrote 4 automated tests to test the following:  
--- Created a test to render the Navbar component and sets the location to Berlin.  
--- Created a test to render the App component to make sure it renders correctly. 
--- Created a test to render the DropDownStation component, using fetchData and locations as mock data. 
--- Created a test to render the Calendar component and expects to find the previous week button and next week button.
+-- Created a test to render the Navbar component and sets the location to Berlin.    
+-- Created a test to render the App component to make sure it renders correctly.   
+-- Created a test to render the DropDownStation component, using fetchData and locations as mock data.   
+-- Created a test to render the Calendar component and expects to find the previous week button and next week button.  
 
 - These tests do not cover the entire application, but as a future feature it will.   
 
