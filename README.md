@@ -1,6 +1,9 @@
 # Case Study - Roadsurfer
 
 ---
+### [Live Site](https://jonathan97-web.github.io/casestudyreact/)
+
+---
 
 ### Steps of implementation:
 
@@ -39,7 +42,11 @@
 - If no bookings exists on a day, it will show no bookings found.  
 - Navigate between weeks for bookings with specified dates, if there are no bookings on a certain the week will get skipped.
 - Alert when there are no more bookings to be found for increased UX.
+<<<<<<< HEAD
 - The border around the navbar will go away when scrolled down to increase readability of the booking calendar while over 100vh.
+=======
+- The border around the navbar will go away when scrolled down to increase readability of the booking calendar when over 100vh.  
+>>>>>>> d937a865c9fddbbaa19d4d85219c482848ee3e54
 
 ---
 ### Future features
@@ -75,6 +82,7 @@
 | [Material UI](https://mui.com/material-ui/) |
 | [Tailwind CSS](https://tailwindcss.com/)    |
 | [React Router](https://reactrouter.com/en/main) |
+| [Axios](https://axios-http.com/)
 
 ---
 
