@@ -26,6 +26,7 @@ export default function NavBar({
     };
   }, [isScrolled]);
 
+  // Returns the navbar with the dropdown for selecting the stations
   return (
     <AppBar
       position="sticky"

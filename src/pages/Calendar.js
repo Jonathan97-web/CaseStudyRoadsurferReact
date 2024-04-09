@@ -10,6 +10,7 @@ import { getWeekDates, getBookingsForWeek } from "../utils/Utils";
 function Calendar({ locations, selectedLocation }) {
   // Navigation hook to navigate to a specific page from React Router
   const navigate = useNavigate();
+  // State variables to handle the alert and the current bookings
   const [showAlert, setShowAlert] = useState(false);
   const [currentBookings, setCurrentBookings] = useState([]);
   const [currentWeek, setCurrentWeek] = useState(0);

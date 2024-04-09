@@ -11,6 +11,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 const BookingDetail = () => {
+  // State variables to store the loading state and the booking details
   const [loading, setLoading] = useState(false);
   const [bookingDetails, setBookingDetails] = useState(null);
   // Get the id of the booking from the URL

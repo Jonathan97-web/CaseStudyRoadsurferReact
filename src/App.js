@@ -8,6 +8,7 @@ import axios from "axios";
 export const LocationsContext = createContext();
 
 function App() {
+  // State variables to handle the loading state and the fetched state
   const [loading, setLoading] = useState(false);
   const [fetched, setFetched] = useState(false);
   const [locations, setLocations] = useState([]);
@@ -43,7 +44,7 @@ function App() {
   };
 
   return (
-    // The LocationsContext.Provider is used to pass the locations and selected location to the NavBar and Calendar
+    // The LocationsContext.Provider is used to pass the locations and selected location to the children
     <div className="App">
       <LocationsContext.Provider
         value={{
