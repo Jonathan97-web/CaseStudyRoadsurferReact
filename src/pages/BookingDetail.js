@@ -13,6 +13,7 @@ import axios from "axios";
 const BookingDetail = () => {
   const [loading, setLoading] = useState(false);
   const [bookingDetails, setBookingDetails] = useState(null);
+  // Get the id of the booking from the URL
   const { id } = useParams();
   const [searchParams] = useSearchParams();
   const stationId = searchParams.get("stationId") || 1;
