@@ -60,7 +60,7 @@
 -- Testing for 404 Error when inputting the wrong URL  
 -- Test view booking button so that it redirects to the booking details page for the specific booking that was selected.
 -- Test the dropdown menu so that it returns the correct bookings for selected city 
--- Test the navigation button function so that it goes to days only when there are bookings.
+-- Test the navigation button function so that it navigates between weeks.
 -- Test so that the alerts pop up when they should.
 
 - Automated tests:
