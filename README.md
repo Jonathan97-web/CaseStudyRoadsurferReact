@@ -35,6 +35,8 @@
   9.2 Can scroll between individual weeks.  
   9.3 Filtration between locations now changes the dates so that the first booking can be found upon first selecting location/station.  
   9.4 Start date is now from the first booking for each location.
+10. Deployment and build to Github Pages.
+  -- The deployed version can be found [here](https://jonathan97-web.github.io/casestudyreact/) or by pressing on the live site link in the top of the readme.
 
 ----
 
