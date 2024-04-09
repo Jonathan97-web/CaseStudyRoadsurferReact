@@ -22,17 +22,19 @@
   3.1 I reformatted the date to YYYY-MM-DD and time to HH-MM-SS For increased readability.    
   3.2 I added the customer id and all the relevant information.  
   3.3 I created a duration which shows the exact duration in days.  
-4. Created a basic 404 message when routed to the wrong page.  
-  4.1 I noticed later that there is already a custom 404 page from Github.  
-5. I reformatted the whole application to have the fetchData at the top of the application.  
-  5.1 This was done to complement the 6th step.  
-6. created a context to be able to pass props directly down instead of it being all over the place.  
-7. Created tests for my application, these can be seen under Testing.  
-8. Add more comments to my application to increase readability.  
-9. Remade the Customer Modal to a View Customer page instead that fetches the station ID and Customer ID from the API directly.  
-  9.1 You can go back to the calendar gain by pressing go back.  
-  9.2 It shows important details about the booking such as their id, station, start date, end date, what time they picked up their vehicle and when to return it.  
-
+4. I reformatted the whole application to have the fetchData at the top of the application.  
+  4.1 This was done to complement the 6th step.  
+5. Created a context to be able to pass props directly down instead of it being all over the place.  
+6. Created tests for my application, these can be seen under Testing.  
+7. Add more comments to my application to increase readability.  
+8. Remade the Customer Modal to a View Customer page instead that fetches the station ID and Customer ID from the API directly.  
+  8.1 You can go back to the calendar gain by pressing go back.  
+  8.2 It shows important details about the booking such as their id, station, start date, end date, what time they picked up their vehicle and when to return it.   
+9. Remade Calendar logic to better fit with specifications.  
+  9.1 Will be alerted when there are no bookings for the current week.  
+  9.2 Can scroll between individual weeks.  
+  9.3 Filtration between locations now changes the dates so that the first booking can be found upon first selecting location/station.  
+  9.4 Start date is now from the first booking for each location.
 
 ----
 
@@ -40,13 +42,10 @@
 - Users can view bookings by clicking the view booking, the user will be redirected to the booking details page to view the booking in more detail.  
 - Users can choose from a dropdown menu in the Navbar to view bookings depending on city.  
 - If no bookings exists on a day, it will show no bookings found.  
-- Navigate between weeks for bookings with specified dates, if there are no bookings on a certain the week will get skipped.
-- Alert when there are no more bookings to be found for increased UX.
-<<<<<<< HEAD
-- The border around the navbar will go away when scrolled down to increase readability of the booking calendar while over 100vh.
-=======
-- The border around the navbar will go away when scrolled down to increase readability of the booking calendar when over 100vh.  
->>>>>>> d937a865c9fddbbaa19d4d85219c482848ee3e54
+- Navigate between weeks for bookings by using the previous and next week button.
+- Alert when there are no more bookings to be found while scrolling between weeks for increased UX.
+- The border around the navbar will go away when scrolled down to increase readability of the booking calendar when over 100vh.
+- Calendar changes dates and finds the first booking upon changing location from the start.
 
 ---
 ### Future features
