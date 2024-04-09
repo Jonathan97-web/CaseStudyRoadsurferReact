@@ -2,3 +2,12 @@
   border: 2px solid grey;
   border-radius: 10px;
 }
+
+.booking-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 80vw;
+  min-height: 50vh;
+  color: white;
+}
