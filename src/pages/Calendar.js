@@ -57,12 +57,22 @@ function Calendar({ locations, selectedLocation }) {
       setShowAlert(false);
     }
   };
-
   // Get the start and end date of the week
   const [startOfWeek, endOfWeek] = getWeekDates(
     currentWeek,
     currentBookings[0]?.startDate
   );
+
+  function getDatesBetween(start, end) {
+    const dates = [];
+    let currentDate = new Date(start);
+
+    while (currentDate <= end) {
+      dates.push(new Date(currentDate));
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return dates;
+  }
 
   return (
     <>
@@ -79,7 +89,7 @@ function Calendar({ locations, selectedLocation }) {
       )}
       <div>
         <p className="text-white text-xl m-2">
-          {startOfWeek.toDateString()} - {endOfWeek.toDateString()}
+          {startOfWeek.toLocaleDateString()} - {endOfWeek.toLocaleDateString()}
         </p>
         <div className="flex m-3 justify-center gap-2">
           <Button variant="contained" onClick={previousWeek}>
@@ -92,30 +102,33 @@ function Calendar({ locations, selectedLocation }) {
       </div>
       <div className="grid grid-cols-2 xl:grid-cols-7 md:grid-cols-4 gap-1">
         {/* Mapping over the specific days in the calendar */}
-        {[
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ].map((day, i) => {
-          // Filter the bookings for the specific day
+        {getDatesBetween(startOfWeek, endOfWeek).map((date, i) => {
+          const day = [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ][date.getDay() - 1];
           const bookingsForDay = bookingsForWeek.filter((booking) => {
             const bookingDate = new Date(booking.startDate);
             const dayIndex = bookingDate.getDay();
             const adjustedDayIndex = dayIndex === 0 ? 6 : dayIndex - 1;
             return adjustedDayIndex === i;
           });
-
           return (
             <div
               className="text-white border-2 rounded-xl border-slate-700"
               key={i}
             >
               {/* Display the day of the week */}
-              <div>{day}</div>
+              <div>
+                {date.toLocaleDateString()}
+                <br />
+                {day}
+              </div>
               {/* Display the bookings for the day */}
               {bookingsForDay.length > 0 ? (
                 bookingsForDay.map((booking, j) => (
