@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useStation } from "../hooks/useStation";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/Calendar.css";
 
 import { useEffect, useState } from "react";
@@ -20,6 +20,7 @@ const BookingDetail = () => {
   const stationId = searchParams.get("stationId") || 1;
   const station = useStation(stationId);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Fetches the specific booking details for the customer
   useEffect(() => {
@@ -81,7 +82,11 @@ const BookingDetail = () => {
         </Typography>
         <span className="flex justify-center">
           <Button
-            onClick={() => navigate("/casestudyreact")}
+            onClick={() =>
+              navigate(`/casestudyreact`, {
+                state: { currentWeek: location.state.currentWeek },
+              })
+            }
             variant="contained"
           >
             Go back

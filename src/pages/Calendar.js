@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import "../styles/Calendar.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import { getWeekDates, getBookingsForWeek } from "../utils/Utils";
@@ -12,8 +12,11 @@ function Calendar({ locations, selectedLocation }) {
   const navigate = useNavigate();
   // State variables to handle the alert and the current bookings
   const [showAlert, setShowAlert] = useState(false);
+  const location = useLocation();
   const [currentBookings, setCurrentBookings] = useState([]);
-  const [currentWeek, setCurrentWeek] = useState(0);
+  const [currentWeek, setCurrentWeek] = useState(
+    location.state?.currentWeek || 0
+  );
 
   // Get the bookings for the selected location and sort them by date in ascending order
   useEffect(() => {
@@ -126,7 +129,8 @@ function Calendar({ locations, selectedLocation }) {
                       variant="contained"
                       onClick={() =>
                         navigate(
-                          `/bookingdetail/${booking.id}?stationId=${selectedLocation}`
+                          `/bookingdetail/${booking.id}?stationId=${selectedLocation}`,
+                          { state: { currentWeek: currentWeek } }
                         )
                       }
                     >
