@@ -37,6 +37,9 @@
   9.4 Start date is now from the first booking for each location.
 10. Deployment and build to Github Pages.
   -- The deployed version can be found [here](https://jonathan97-web.github.io/casestudyreact/) or by pressing on the live site link in the top of the readme.
+11. Add a date picker and go back function to the same page.
+    11.1 Can now use the go back to go back to the exact same date as you were on when looking at Booking Details.
+    11.2 Can now use a date picker to select specific weeks and booking will be highlighted.
 
 ----
 
