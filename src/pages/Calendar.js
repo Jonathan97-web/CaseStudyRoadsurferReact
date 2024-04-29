@@ -6,8 +6,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import { getWeekDates, getBookingsForWeek } from "../utils/Utils";
+import CalendarView from "../components/CalendarView";
 
-function Calendar({ locations, selectedLocation }) {
+function Calendar({ locations, selectedLocation, loading }) {
   // Navigation hook to navigate to a specific page from React Router
   const navigate = useNavigate();
   // State variables to handle the alert and the current bookings
@@ -36,25 +37,16 @@ function Calendar({ locations, selectedLocation }) {
   // Get the bookings for the current week
   const bookingsForWeek = getBookingsForWeek(currentWeek, currentBookings);
 
-  // Show alert if no bookings are found when pressing next or previous week
-  useEffect(() => {
-    if (bookingsForWeek.length === 0 && currentWeek > 0) {
-      setShowAlert(true);
-    }
-  }, [currentWeek, bookingsForWeek.length]);
-
   // Function to get the next week
   const nextWeek = () => {
     setCurrentWeek(currentWeek + 1);
   };
-  // Function to get the previous week
+
   const previousWeek = () => {
-    let week = currentWeek - 1;
-    if (currentWeek === 0) {
-      setShowAlert(true);
+    if (currentWeek > 0) {
+      setCurrentWeek(currentWeek - 1);
     } else {
-      setCurrentWeek(week);
-      setShowAlert(false);
+      setShowAlert(true);
     }
   };
   // Get the start and end date of the week
@@ -67,10 +59,16 @@ function Calendar({ locations, selectedLocation }) {
     const dates = [];
     let currentDate = new Date(start);
 
+    // Adjust the start date to Monday if it's Sunday
+    if (currentDate.getDay() === 0) {
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+
     while (currentDate <= end) {
       dates.push(new Date(currentDate));
       currentDate.setDate(currentDate.getDate() + 1);
     }
+
     return dates;
   }
 
@@ -87,6 +85,15 @@ function Calendar({ locations, selectedLocation }) {
           <Alert severity="info">No bookings found during these dates.</Alert>
         </Snackbar>
       )}
+      <CalendarView
+        startOfWeek={startOfWeek}
+        endOfWeek={endOfWeek}
+        currentWeek={currentWeek}
+        setCurrentWeek={setCurrentWeek}
+        currentBookings={currentBookings}
+        selectedLocation={selectedLocation}
+        loading={loading}
+      />
       <div>
         <p className="text-white text-xl m-2">
           {startOfWeek.toLocaleDateString()} - {endOfWeek.toLocaleDateString()}
@@ -111,11 +118,12 @@ function Calendar({ locations, selectedLocation }) {
             "Friday",
             "Saturday",
             "Sunday",
-          ][date.getDay() - 1];
+          ][(date.getDay() + 6) % 7];
+
           const bookingsForDay = bookingsForWeek.filter((booking) => {
             const bookingDate = new Date(booking.startDate);
             const dayIndex = bookingDate.getDay();
-            const adjustedDayIndex = dayIndex === 0 ? 6 : dayIndex - 1;
+            const adjustedDayIndex = (dayIndex + 6) % 7; // Adjust the day index in the same way
             return adjustedDayIndex === i;
           });
           return (
