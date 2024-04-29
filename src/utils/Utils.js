@@ -2,9 +2,12 @@
 
 // Function for getting the week dates
 export const getWeekDates = (weekNumber, startDate) => {
+  startDate =
+    startDate && !isNaN(new Date(startDate)) ? new Date(startDate) : new Date();
+
   const startOfWeek = new Date(startDate);
   const day = startOfWeek.getDay();
-  const diff = day === 0 ? 6 : day - 1; // Consider Sunday as the end of the week (day 7)
+  const diff = day === 0 ? 6 : day - 1; // Consider Monday as the start of the week (day 1)
   startOfWeek.setDate(startOfWeek.getDate() - diff);
 
   // Add the appropriate number of weeks
